@@ -12,11 +12,12 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Producers con callbacks
+ * 
  * @author admin
  *
  */
-public class FalpemaCallbacks {
-	public static final Logger log = LoggerFactory.getLogger(FalpemaCallbacks.class);
+public class FalpemaCallbackProducer {
+	public static final Logger log = LoggerFactory.getLogger(FalpemaCallbackProducer.class);
 
 	public static void main(String[] args) {
 		long startTime = System.currentTimeMillis();
@@ -30,18 +31,12 @@ public class FalpemaCallbacks {
 		try (Producer<String, String> producer = new KafkaProducer<>(props);) {
 			for (int i = 0; i < 10000; i++) {
 				producer.send(new ProducerRecord<String, String>("devs4j-topic", String.valueOf(i), "devs4j-value"),
-						new Callback() {
-
-							// Evento que se dispara una vez entregado el mensaje
-							@Override
-							public void onCompletion(RecordMetadata metadata, Exception exception) {
-								if (exception != null) {
-									log.info("There was an error {} ", exception.getMessage());
-								} else {
-									log.info("Offset = {}, Partitions = {}, Topic = {}", metadata.offset(),
-											metadata.partition(), metadata.topic());
-								}
-
+						(metadata, exception) -> {
+							if (exception != null) {
+								log.info("thera was an error {}", exception.getMessage());
+							} else {
+								log.info(" Offset = {}, partition {}, Topic = {} ", metadata.offset(),
+										metadata.partition(), metadata.topic());
 							}
 						});
 
