@@ -20,7 +20,7 @@ public class TransactionalConsumer {
 		props.setProperty("bootstrap.servers", "localhost:9092");
 		props.setProperty("group.id", "devs4j-group");
 		props.setProperty("enable.auto.commit", "true");
-		props.setProperty("isolation.level", "read_committed");
+		props.setProperty("isolation.level", "read_committed"); //solo lee mensajes hecho commit
 		props.setProperty("auto.commit.interval.ms", "1000");
 		props.setProperty("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 		props.setProperty("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
