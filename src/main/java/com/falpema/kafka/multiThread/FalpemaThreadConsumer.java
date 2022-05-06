@@ -35,7 +35,7 @@ public class FalpemaThreadConsumer extends Thread {
 				for (ConsumerRecord<String, String> consumerRecord : consumerRecords) {
 					log.debug("Offset = {}, Partition = {}, Key = {} , Value = {} ", consumerRecord.offset(),
 							consumerRecord.partition(), consumerRecord.key(), consumerRecord.value());
-					if (Integer.valueOf(consumerRecord.key()) % 10000 == 0) {
+					if (Integer.valueOf(consumerRecord.key()) % 100000 == 0) {
 						log.info("Offset = {}, Partition = {}, Key = {} , Value = {} ", consumerRecord.offset(),
 								consumerRecord.partition(), consumerRecord.key(), consumerRecord.value());
 					}
