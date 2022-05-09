@@ -23,15 +23,13 @@ public class FalpemaProducer {
 		props.put("linger.ms", "10");
 
 		try (Producer<String, String> producer = new KafkaProducer<>(props);) {
-			for (int i = 0; i < 1000000; i++) {
-				producer.send(new ProducerRecord<String, String>("devs4j-topic", String.valueOf(i), "devs4j-value"));
-				// el .get() me asegura que sea sincrono el envio de mensajes , es mas lento
+			for (int i = 0; i < 1000; i++) {
+				//para enviar lo mensajes en orden por la llave
+				producer.send(new ProducerRecord<String, String>("devs4j-topic", ( i % 2 ==0 ? "key-2.1" :"key-3.1" ),String.valueOf(i)));
+
 			}
 			producer.flush();
-		} /*
-			 * catch (InterruptedException| ExecutionException e ) { e.printStackTrace();
-			 * log.error("Message produced interrumped", e); }
-			 */
+		} 
 		log.info("Processing time = {} ms ", (System.currentTimeMillis() - startTime));
 
 		/**
