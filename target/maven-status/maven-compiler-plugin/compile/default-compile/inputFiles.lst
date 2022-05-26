@@ -1,0 +1,9 @@
+/Users/admin/Documents/workspace-spring-tool-suite-4-4.12.0.RELEASE/FabianKafka/src/main/java/com/falpema/kafka/consumers/FalpemaConsumer.java
+/Users/admin/Documents/workspace-spring-tool-suite-4-4.12.0.RELEASE/FabianKafka/src/main/java/com/falpema/kafka/producers/FalpemaProducerAssignSeek.java
+/Users/admin/Documents/workspace-spring-tool-suite-4-4.12.0.RELEASE/FabianKafka/src/main/java/com/falpema/kafka/callbacks/FalpemaCallbackProducer.java
+/Users/admin/Documents/workspace-spring-tool-suite-4-4.12.0.RELEASE/FabianKafka/src/main/java/com/falpema/kafka/multiThread/FalpemaMultiThreadConsumer.java
+/Users/admin/Documents/workspace-spring-tool-suite-4-4.12.0.RELEASE/FabianKafka/src/main/java/com/falpema/kafka/transaccional/TransactionalProducer.java
+/Users/admin/Documents/workspace-spring-tool-suite-4-4.12.0.RELEASE/FabianKafka/src/main/java/com/falpema/kafka/transaccional/TransactionalConsumer.java
+/Users/admin/Documents/workspace-spring-tool-suite-4-4.12.0.RELEASE/FabianKafka/src/main/java/com/falpema/kafka/consumers/FalpemaConsumerAsignSeek.java
+/Users/admin/Documents/workspace-spring-tool-suite-4-4.12.0.RELEASE/FabianKafka/src/main/java/com/falpema/kafka/multiThread/FalpemaThreadConsumer.java
+/Users/admin/Documents/workspace-spring-tool-suite-4-4.12.0.RELEASE/FabianKafka/src/main/java/com/falpema/kafka/producers/FalpemaProducer.java
