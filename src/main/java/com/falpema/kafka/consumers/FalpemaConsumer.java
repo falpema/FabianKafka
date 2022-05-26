@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.util.Arrays;
 import java.util.Properties;
 
+import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
@@ -23,6 +24,7 @@ public class FalpemaConsumer {
 		props.setProperty("auto.commit.interval.ms", "1000");
 		props.setProperty("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 		props.setProperty("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+		props.setProperty(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "false") ;
 		//particion 4
 		try (KafkaConsumer<String,String> consumer = new KafkaConsumer <>(props) ){
 			TopicPartition topicPartition = new TopicPartition("devs4j-topic",4);
@@ -32,6 +34,7 @@ public class FalpemaConsumer {
 				ConsumerRecords<String, String> consumerRecords =	consumer.poll(Duration.ofMillis(100));
 				for (ConsumerRecord<String, String> consumerRecord : consumerRecords  ) {
 					log.info("Offset = {}, Partition = {}, Key = {} , Value = {} ",consumerRecord.offset(),consumerRecord.partition(), consumerRecord.key(), consumerRecord.value());
+					consumer.commitSync();
 				}
 			}
 			
